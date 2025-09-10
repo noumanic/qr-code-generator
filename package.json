@@ -1,0 +1,17 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "description": "URL to QR Code in the form of the png,svg,eps or pdf format",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node index.js"
+  },
+  "author": "Nouman Hafeez",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^12.9.4",
+    "qr-image": "^3.2.0"
+  }
+}
