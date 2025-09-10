@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noumanic QR Code Generator</title>
+    <link rel="icon" type="image/x-icon" href="qr-favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-qrcode"></i>
+                <h1>Noumanic QR Generator</h1>
+            </div>
+            <p class="tagline">Transform URLs into beautiful QR codes instantly</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content" role="main">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-container">
+                    <label for="url-input" class="input-label">
+                        <i class="fas fa-link"></i>
+                        Enter your URL
+                    </label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="url" 
+                            id="url-input" 
+                            placeholder="https://example.com"
+                            class="url-input"
+                            autocomplete="url"
+                        >
+                        <button id="generate-btn" class="generate-btn">
+                            <i class="fas fa-magic"></i>
+                            Generate QR Code
+                        </button>
+                    </div>
+                    <div class="input-hint">
+                        <i class="fas fa-info-circle"></i>
+                        Enter any valid URL to generate a QR code
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Generating your QR code...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="error-message">Something went wrong. Please try again.</p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="results" class="results hidden">
+                <div class="results-header">
+                    <h2>Your QR Code is Ready!</h2>
+                    <p id="generated-url" class="generated-url"></p>
+                </div>
+
+                <!-- Preview -->
+                <div class="preview-section">
+                    <h3>Preview</h3>
+                    <div class="qr-preview">
+                        <img id="qr-preview-img" src="" alt="QR Code Preview" class="qr-image">
+                    </div>
+                </div>
+
+                <!-- Download Options -->
+                <div class="download-section">
+                    <h3>Download Options</h3>
+                    <div class="download-grid">
+                        <div class="download-card" data-format="png">
+                            <div class="format-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="format-info">
+                                <h4>PNG</h4>
+                                <p>High quality raster image</p>
+                                <span class="file-size" id="png-size"></span>
+                            </div>
+                            <button class="download-btn" data-format="png">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="download-card" data-format="svg">
+                            <div class="format-icon">
+                                <i class="fas fa-vector-square"></i>
+                            </div>
+                            <div class="format-info">
+                                <h4>SVG</h4>
+                                <p>Scalable vector graphics</p>
+                                <span class="file-size" id="svg-size"></span>
+                            </div>
+                            <button class="download-btn" data-format="svg">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="download-card" data-format="pdf">
+                            <div class="format-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="format-info">
+                                <h4>PDF</h4>
+                                <p>Print-ready document</p>
+                                <span class="file-size" id="pdf-size"></span>
+                            </div>
+                            <button class="download-btn" data-format="pdf">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+
+                        <div class="download-card" data-format="eps">
+                            <div class="format-icon">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <div class="format-info">
+                                <h4>EPS</h4>
+                                <p>Professional printing</p>
+                                <span class="file-size" id="eps-size"></span>
+                            </div>
+                            <button class="download-btn" data-format="eps">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Another -->
+                <div class="generate-another">
+                    <button id="generate-another-btn" class="secondary-btn">
+                        <i class="fas fa-plus"></i>
+                        Generate Another QR Code
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 <strong>Noumanic</strong> - Open Source QR Code Generator</p>
+                <div class="footer-links">
+                    <a href="https://github.com/noumanic" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://github.com/noumanic/qr-code-generator" target="_blank" rel="noopener">
+                        <i class="fas fa-code"></i>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
